@@ -1,0 +1,40 @@
+/*
+This algorith is designed to calculate the pervios date from a given date
+Written by: Khalil Abdurehman
+Written date: 23/12/2020
+*/
+
+
+placeholders 
+
+date 
+month
+year
+leapYear true or false
+
+START
+	year = 0
+	leapYear = false
+	month = 0
+
+	DISPLAY "Please enter the year: "
+
+	DO
+		Get year
+
+		IF year is evenly divisible by 4 or year is evenly divisible by 100 or year is evenly divisible by 400
+			leapYear = true
+
+		ELSE
+			DISPLAY "Please enter a year that is valid to the Gregorian calendar"
+
+		END IF
+
+	WHILE year > 1582 // the start of Gregorian calendar
+
+	DISPLAY "Please enter the month: "
+
+	DO
+		GET month   
+
+
