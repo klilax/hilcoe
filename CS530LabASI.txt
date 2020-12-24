@@ -11,30 +11,57 @@ date
 month
 year
 leapYear true or false
+maxDate
 
 START
 	year = 0
 	leapYear = false
 	month = 0
+	maxDate = 0
+	date = 0
 
 	DISPLAY "Please enter the year: "
 
 	DO
 		Get year
 
-		IF year is evenly divisible by 4 or year is evenly divisible by 100 or year is evenly divisible by 400
-			leapYear = true
-
-		ELSE
+		IF year < 1582
 			DISPLAY "Please enter a year that is valid to the Gregorian calendar"
+
+		ELSE IF year is evenly divisible by 4 or year is evenly divisible by 100 or year is evenly divisible by 400 THEN
+			leapYear = true
 
 		END IF
 
-	WHILE year > 1582 // the start of Gregorian calendar
+	WHILE year < 1582 // the start of Gregorian calendar
 
 	DISPLAY "Please enter the month: "
 
 	DO
-		GET month   
+		GET month
+
+		IF month > 13
+			DESPLAY "Please enter a valid value"
+
+		ELSE IF month = 4 or 6 or 9 or 11 THEN
+			maxDate = 30
+
+		ELSE IF month = 2 THEN
+			
+			IF leapYear = true
+				maxDate = 29
+			ELSE 
+				maxDate = 28
+			END IF 
+
+		ELSE 
+			maxDate = 31  
+
+	WHILE month < 0 and month > 13
+
+	DISPLAY "Please enter the date: "
+
+	DO
+		GET date    
 
 
