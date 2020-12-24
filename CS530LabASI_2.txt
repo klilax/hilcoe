@@ -1,0 +1,111 @@
+/*
+this algorithm calculate cost of table from list of table
+*/
+
+Placeholders
+
+customerInput
+tableArea
+radius
+finishOption
+cost
+totalCost
+orderNo
+matrialType
+orderStatus true or false
+
+
+START
+
+	DISPLAY "Welcome, This Khalil's Workshop"
+	tableArea = 0
+	radius = 0
+	totalCost = 0
+	orderNo = 0
+	orderStatus = false
+
+
+	DO
+		DISPLAY "Avilable table shapes 1.Rectangular 2.Square 3.Circular 4.End "
+		GET customerInput
+		customerInput = 0
+		
+		IF (customerInput = 1) Then
+			DISPLAY "Enter lenght and width"
+			DO
+				GET length, width
+
+				IF (length >=0 and width >=0) Then
+					DISPLAY "Please reenter a valid value "
+
+				tableArea <--- length * width
+
+			WHILE length <= 0 and width <= 0
+
+
+		ELSE IF (customerInput = 2) Then
+			DISPLAY "Enter lenght "
+			DO
+				GET length 
+
+				IF (length >=0) Then 
+					DISPLAY "Please reenter a valid value "
+				
+				tableArea <--- length * length
+
+			WHILE length <= 0 
+			
+
+		ELSE IF (customerInput = 3) Then
+			DISPLAY "Enter diameter "
+			DO
+				GET diameter
+				
+				IF (diameter >=0) Then
+					DISPLAY "Please reenter a valid value "
+				
+				radius <--- diameter/2 
+				tableArea <--- 3.14 * radius * radius
+
+			WHILE diameter <= 0 
+
+		END IF (customerInput >= 5 or customerInput <=0) Then
+			DISPLAY "Please enter a valid value"
+			
+
+		DO  // finishing option 
+			DISPLAY "Please enter finishing options 1.laminate, 2.Oak"
+			GET finishOption
+
+			IF (finishOption = 1) Then
+				cost <--- tableArea * 0.125
+				materialType <--- laminate
+				totalCost <--- totalCost + cost
+				orderNo <--- orderNo + 1
+				orderStatus <--- true
+
+			ELSE IF (finishOption = 2) Then
+				cost <--- tableArea * 0.25
+				materialType <--- Oak
+				totalCost <--- totalCost + cost
+				orderNo <--- orderNo + 1
+				orderStatus <--- true
+				
+			END IF (finishOption > 0 or finishOption < 2) Then
+				DISPLAY "Pelase enter a valid option "
+
+		WHILE finishOption > 0 or finishOption < 2
+			
+	WHILE customereInput <> 4
+	
+	IF (customerInput = 4 and orderNo = 1) Then
+		DISPLAY "The area of the table is " + tableArea + "The table will be made of " + materialType + "The cost of this table is " + totalCost + "Thank you for using the table cost estimation program Goodbye!!!"
+
+	ELSE IF (customerInput = 4 and orderNo > 1) Then
+		DISPLAY "The total cost of the " + orderNo + "tables you estimated is " + totalCost + "Thank you for using the table cost estimation program Goodbye!!!"
+
+	END IF (customerInput = 4 and orderNo < 1)
+		DISPLAY "You don't have any cost estimation,Thank you for using the table cost estimation program Goodbye!!!"
+END
+
+
