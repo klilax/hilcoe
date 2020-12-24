@@ -62,6 +62,10 @@ START
 	DISPLAY "Please enter the date: "
 
 	DO
-		GET date    
+		GET date
 
+		IF date < 0 and date > maxDate THEN
+			DISPLAY "Please enter a valid date"
+		END IF
 
+	WHILE date < 0 and date > maxDate
