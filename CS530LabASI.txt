@@ -1,5 +1,5 @@
 /*
-This algorith is designed to calculate the pervios date from a given date
+This algorithm is designed to calculate the previous date from a given date
 Written by: Khalil Abdurehman
 Written date: 23/12/2020
 */
@@ -40,7 +40,7 @@ START
 	DO
 		GET month
 
-		IF month > 13
+		IF month > 13 or month < 0
 			DESPLAY "Please enter a valid value"
 
 		ELSE IF month = 4 or 6 or 9 or 11 THEN
@@ -66,6 +66,55 @@ START
 
 		IF date < 0 and date > maxDate THEN
 			DISPLAY "Please enter a valid date"
+
+		ELSE IF date = 1 and month > 1 THEN
+				month <--- month - 1
+
+        ELSE IF date = 1 and month = 1 THEN
+        		month = 12
+
 		END IF
 
 	WHILE date < 0 and date > maxDate
+
+
+	IF month = 4 or 6 or 9 or 11  THEN
+		maxDate = 30
+
+	ELSE IF month = 2 THEN
+			
+			IF leapYear = true
+				maxDate = 29
+			ELSE 
+				maxDate = 28
+			END IF
+
+	ELSE 
+		maxDate =31
+
+	END IF
+
+
+
+	IF date > 1 THEN
+
+		previousYear <--- year
+		previousMonth <--- month
+		previousDate <--- date - 1
+
+	ELSE IF date = 1 and month = 1  THEN
+
+			previousYear <--- year - 1
+			previousMonth <--- month
+			previousDate <--- maxDate
+	
+	ELSE IF date = 1 and month < 1 THEN
+
+			previousYear <--- year 
+			previousMonth <--- month
+			previousDate <--- maxDate
+
+	END IF
+END
+
+
