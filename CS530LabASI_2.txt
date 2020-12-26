@@ -1,18 +1,22 @@
 /*
 this algorithm calculate cost of table from list of table
+Written by: Khalil Abdurehman
+Written date: 22/12/2020
 */
 
 Placeholders
 
-customerInput
-tableArea
-radius
-finishOption
-cost
-totalCost
-orderNo
-matrialType
-orderStatus true or false
+LET customerInput be a positive integer input from the user
+LET length be a float input from the user
+LET width be a float input from the user
+LET tableArea be a float used to calculate the area
+LET radius be a float input from the user
+LET diameter be a float used to calculate the radius
+LET finishOption be a positive integer input from the user
+LET cost be a float used to calculate the cost
+LET totalCost be a float used to calculate the total cost
+LET orderNo  be a positive integer used to track order
+LET matrialType  be a positive integer to select type of material 
 
 
 START
@@ -22,8 +26,6 @@ START
 	radius = 0
 	totalCost = 0
 	orderNo = 0
-	orderStatus = false
-
 
 	DO
 		DISPLAY "Avilable table shapes 1.Rectangular 2.Square 3.Circular 4.End "
@@ -82,14 +84,12 @@ START
 				materialType <--- laminate
 				totalCost <--- totalCost + cost
 				orderNo <--- orderNo + 1
-				orderStatus <--- true
 
 			ELSE IF (finishOption = 2) Then
 				cost <--- tableArea * 0.25
 				materialType <--- Oak
 				totalCost <--- totalCost + cost
 				orderNo <--- orderNo + 1
-				orderStatus <--- true
 				
 			END IF (finishOption > 0 or finishOption < 2) Then
 				DISPLAY "Pelase enter a valid option "

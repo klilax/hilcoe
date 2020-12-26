@@ -7,11 +7,15 @@ Written date: 23/12/2020
 
 placeholders 
 
-date 
-month
-year
-leapYear true or false
-maxDate
+LET date be a positive integer input from the user
+LET month be a positive integer input from the user
+LET year be a positive integer input from the user
+LET leapYear be a boolean to check if it is leap year 
+LET maxDate be a positive integer to store max allowable date
+LET previousYear be a positive integer to the previous year
+LET previousMonth be a positive integer to the previous month
+LET previousDate be a positive integer to the previous date 
+
 
 START
 	year = 0
@@ -108,13 +112,17 @@ START
 			previousMonth <--- month
 			previousDate <--- maxDate
 	
-	ELSE IF date = 1 and month < 1 THEN
+	ELSE IF date = 1 and month > 1 THEN
 
 			previousYear <--- year 
 			previousMonth <--- month
 			previousDate <--- maxDate
 
 	END IF
+
+	DISPLAY "Previous Date: " + previousDate +"/" + previousMonth + "/" +previousYear
+
+
 END
 
 
